@@ -29,7 +29,10 @@ namespace lojaVirtual.Controllers
 
             //ContatoEmail.EnviarContatoPorEmail(contato);
 
-            return new ContentResult() { Content = string.Format("Dados enviados com sucesso! <br />Nome: {0} <br />E-mail: {1} <br />Texto: {2}", contato.Nome, contato.Email, contato.Texto), ContentType = "text/html"};
+            ViewData["MSG_S"] = "Mensagem de contato enviada com sucesso!";
+
+            return View("Contato");
+
         }
 
         public IActionResult Login()
