@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace loja
+namespace lojaVirtual
 {
     public class Startup
     {
@@ -58,7 +58,7 @@ namespace loja
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Produto}/{action=Visualizar}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

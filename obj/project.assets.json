@@ -11805,11 +11805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\econceicao\\Documents\\Fatec\\loja\\loja.csproj",
+      "projectUniqueName": "C:\\Users\\econceicao\\Documents\\Fatec\\LojaVirtual\\loja.csproj",
       "projectName": "loja",
-      "projectPath": "C:\\Users\\econceicao\\Documents\\Fatec\\loja\\loja.csproj",
+      "projectPath": "C:\\Users\\econceicao\\Documents\\Fatec\\LojaVirtual\\loja.csproj",
       "packagesPath": "C:\\Users\\econceicao\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\econceicao\\Documents\\Fatec\\loja\\obj\\",
+      "outputPath": "C:\\Users\\econceicao\\Documents\\Fatec\\LojaVirtual\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

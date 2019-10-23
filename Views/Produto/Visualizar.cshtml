@@ -1,2 +1,21 @@
+@model lojaVirtual.Models.Produto
+
 <h3>Produto -> Visualizar</h3>
 :)
+<br />
+
+Razor:
+<h2>Produto</h2>
+<b>Código: </b>@Model.Id<br />
+<b>Nome: </b>@Model.Nome<br />
+<b>Descrição: </b>@Model.Descricao<br />
+<b>Valor: </b>@Model.Valor.ToString("C")
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+Todos os Direitos Reservados &copy; - @DateTime.Now.Year
