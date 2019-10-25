@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using lojaVirtual.Libraries.Email;
 using lojaVirtual.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+
 
 namespace lojaVirtual.Controllers
 {
@@ -22,17 +25,45 @@ namespace lojaVirtual.Controllers
 
         public IActionResult ContatoAcao()
         {
-            Contato contato = new Contato();
-            contato.Nome = HttpContext.Request.Form["nome"];
-            contato.Email = HttpContext.Request.Form["email"];
-            contato.Texto = HttpContext.Request.Form["texto"];
+            try{
+                Contato contato = new Contato();
+                contato.Nome = HttpContext.Request.Form["nome"];
+                contato.Email = HttpContext.Request.Form["email"];
+                contato.Texto = HttpContext.Request.Form["texto"];
 
-            //ContatoEmail.EnviarContatoPorEmail(contato);
+                var listaMensagens = new List<ValidationResult>();
+                var contexto = new ValidationContext(contato);
+                bool isValid = Validator.TryValidateObject(contato, contexto, listaMensagens, true);
 
-            ViewData["MSG_S"] = "Mensagem de contato enviada com sucesso!";
+                if(isValid)
+                {
+                    ContatoEmail.EnviarContatoPorEmail(contato);
+
+                    ViewData["MSG_S"] = "Mensagem de contato enviada com sucesso!";
+                }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach(var texto in listaMensagens)
+                    {
+                        sb.Append(texto.ErrorMessage + "<br />");
+                        
+                    }
+                    
+                    ViewData["MSG_E"] = sb.ToString();
+                    ViewData["CONTATO"] = contato;
+                }
+
+                
+            }
+            catch(Exception e)
+            {
+                ViewData["MSG_E"] = "Erro! Tente novamente mais tarde";
+
+                //TODO - Implementar log
+            }
 
             return View("Contato");
-
         }
 
         public IActionResult Login()
