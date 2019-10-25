@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "lojavirtual",
+            "dialect": "MySQL",
+            "isActive": true,
+            "isConnected": true,
+            "name": "Local instance MySQL80",
+            "password": "123456789",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        }
+    ]
+}
